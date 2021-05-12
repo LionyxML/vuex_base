@@ -8,6 +8,15 @@
   </div>
 </template>
 
+
+<script>
+export default {
+  mounted() {
+    this.$store.dispatch('setCurrentJoke');
+  }
+};
+</script>
+
 <style lang="scss">
 @import './assets/style.scss';
 

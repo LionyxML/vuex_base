@@ -2,9 +2,9 @@
   <div class="home container">
     <div class="card">
       <h4>Dad jokes!</h4>
-      <h2>Here goes the jokes</h2>
+      <h2>{{ joke }}</h2>
       <a href="#">
-        <div class="btn">
+        <div class="btn" @click="addJoke">
           Another Joke
         </div>
       </a>
@@ -18,6 +18,22 @@
 
 export default {
   name: 'Home',
+  data: () => ({
+    // joke: ''
+  }),
+  methods: {
+    addJoke(){
+      this.$store.dispatch("setCurrentJoke")
+    }
+  },
+  computed: {
+    joke() {
+      return this.$store.getters.getCurrentJoke;
+    }
+  },
+  // mounted () {   // Hook to load when page is mounted
+  //   this.joke = this.$store.getters.getCurrentJoke;
+  // },
   components: {
 
   }
