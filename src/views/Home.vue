@@ -13,8 +13,7 @@
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
+import { mapActions, mapGetters } from "vuex"
 
 export default {
   name: 'Home',
@@ -22,14 +21,18 @@ export default {
     // joke: ''
   }),
   methods: {
-    addJoke(){
-      this.$store.dispatch("setCurrentJoke")
-    }
+    ...mapActions({ addJoke: 'setCurrentJoke'}),
+    // addJoke(){
+    //   // this.$store.dispatch("setCurrentJoke")   //Not necessary if using mapActions helper, instead, do:
+    //   this.setCurrentJoke();
+    // }
   },
   computed: {
-    joke() {
-      return this.$store.getters.getCurrentJoke;
-    }
+    ...mapGetters({ joke: 'getCurrentJoke' }),
+    // joke() {
+    //   // return this.$store.getters.getCurrentJoke;
+    //   return this.getCurrentJoke;
+    // }
   },
   // mounted () {   // Hook to load when page is mounted
   //   this.joke = this.$store.getters.getCurrentJoke;

@@ -13,7 +13,7 @@ export default new Vuex.Store({
   state: {
     // Information shared across the app
     currentJoke : 'This is a joke man!',
-    allJokes : ''
+    allJokes : []
   },
   mutations: {                     // .commit to alter a mutation
     // Synchronous way to update states on VueX Store
@@ -36,6 +36,7 @@ export default new Vuex.Store({
     // getCurrentJoke(state){
     //   return state.currentJoke;
     // }
-    getCurrentJoke: state => state.currentJoke
+    getCurrentJoke: state => state.currentJoke,
+    getAllJokes: state => state.allJokes
   }
 })
