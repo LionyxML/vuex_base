@@ -14,8 +14,7 @@ export default new Vuex.Store({
     // Information shared across the app
     currentJoke : 'This is a joke man!',
     allJokes : [],
-    isLoading: false,
-
+    isLoading : false
   },
   mutations: {                     // .commit to alter a mutation
     // Synchronous way to update states on VueX Store
@@ -28,12 +27,10 @@ export default new Vuex.Store({
   actions: {                      // .dispatch to alter an action
     // Asynchronous way to update states on VueX Store
     async setCurrentJoke(state){
-      state.isLoading = true;
-      console.log(state.isLoading);
+      this.state.isLoading = true;
       const joke = await fetch(url, {headers});
       const j = await joke.json();
-      state.isLoading = false;
-      console.log(state.isLoading);
+      this.state.isLoading = false;
       state.commit("setCurrentJoke", j.joke)
     }
   },

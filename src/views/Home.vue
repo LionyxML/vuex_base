@@ -5,14 +5,10 @@
       <h2>{{ joke }}</h2>
       <a href="#">
         <VueLoadingButton
-          aria-label="Post message"
-          class="button"
+          class="btn"
           @click.native="addJoke"
           :loading="isLoading"
         >One more Dad!</VueLoadingButton>
-        <div class="btn" @click="addJoke">
-          Another Joke {{ isLoading }}
-        </div>
       </a>
     </div>
   </div>
@@ -30,13 +26,15 @@ export default {
   }),
   methods: {
     ...mapActions({ addJoke: 'setCurrentJoke'}),
+
     // addJoke(){
     //   // this.$store.dispatch("setCurrentJoke")   //Not necessary if using mapActions helper, instead, do:
     //   this.setCurrentJoke();
     // }
   },
   computed: {
-    ...mapGetters({ joke: 'getCurrentJoke',  isLoading: 'getIsLoading' }),
+    ...mapGetters({ joke: 'getCurrentJoke',
+                    isLoading: 'getIsLoading'}),
     // joke() {
     //   // return this.$store.getters.getCurrentJoke;
     //   return this.getCurrentJoke;
