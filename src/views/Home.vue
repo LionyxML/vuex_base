@@ -4,8 +4,14 @@
       <h4>Dad jokes!</h4>
       <h2>{{ joke }}</h2>
       <a href="#">
+        <VueLoadingButton
+          aria-label="Post message"
+          class="button"
+          @click.native="addJoke"
+          :loading="isLoading"
+        >One more Dad!</VueLoadingButton>
         <div class="btn" @click="addJoke">
-          Another Joke
+          Another Joke {{ isLoading }}
         </div>
       </a>
     </div>
@@ -13,7 +19,9 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex"
+import { mapActions, mapGetters } from "vuex";
+import VueLoadingButton from 'vue-loading-button';
+
 
 export default {
   name: 'Home',
@@ -28,7 +36,7 @@ export default {
     // }
   },
   computed: {
-    ...mapGetters({ joke: 'getCurrentJoke' }),
+    ...mapGetters({ joke: 'getCurrentJoke',  isLoading: 'getIsLoading' }),
     // joke() {
     //   // return this.$store.getters.getCurrentJoke;
     //   return this.getCurrentJoke;
@@ -38,7 +46,7 @@ export default {
   //   this.joke = this.$store.getters.getCurrentJoke;
   // },
   components: {
-
+    VueLoadingButton,
   }
 }
 </script>
