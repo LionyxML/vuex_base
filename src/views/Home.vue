@@ -8,7 +8,7 @@
           class="btn"
           @click.native="addJoke"
           :loading="isLoading"
-        >One more Dad!</VueLoadingButton>
+        >Another One!</VueLoadingButton>
       </a>
     </div>
   </div>
